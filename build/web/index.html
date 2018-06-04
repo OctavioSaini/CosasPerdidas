@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>CONSULTA DB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Prueba consulta a la Base de Datos</div>
+        <section id="panelFiltro">
+            <form action="" method="GET">
+                    <input type="text" name="usuario_nombre" id="usuario_nombre" maxlength="200" placeholder="nombre" />
+                    <input type="text" name="usuario_apellido" id="usuario_apellido" maxlength="200" placeholder="apellido" />
+                    <input type="text" name="usuario_clave" id="usuario_clave" maxlength="200" placeholder="clave" />
+                    <input type="text" name="usuario_usuario" id="usuario_usuario" maxlength="200" placeholder="usuario" />
+                    <input type="email" name="usuario_email" id="usuario_email" maxlength="200" placeholder="email" />
+
+                    <input type="button" id="btnInsertar" value="Insertar" />
+                    <!--input type="button" id="btnConsultar" value="Consultar" /-->
+            </form>
+        </section>
+        <button 
+            id="btnConsultar">
+            <!--onclick="TraerDelServer.consultarServidor();"-->
+            
+            Traer Del Servidor
+        </button>
+        <div id="panelResultado">
+            
+        </div>
+        <script type="text/template" id="plantillaJS">
+        `
+        <ol>${usuarios.map ( usuario =>
+            `
+            <li>${usuario.ACTIVO},${usuario.APELLIDO},${usuario.CLAVE},${usuario.EMAIL},${usuario.ID},${usuario.NOMBRE},${usuario.USUARIO}</li>
+            `
+            ).join('')
+            }
+        </ol>
+        `
+        </script>   
+        <script src="js/Usuario.js"></script>    
+    </body>
+</html>
